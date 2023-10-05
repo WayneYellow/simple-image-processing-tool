@@ -22,7 +22,7 @@ and the GUI will show up
 click the open image button to open an image
 an image should be shown in the bottom of the window
 then you can choose the function you want to use
-some function requires user input some value to work
+some function requires user input to work
 - the operation is always done on the original image
 - for overlay effect or apply repeatedly, you need to click save after doing a operation
 then you can do another operation on the edited image, and so on
