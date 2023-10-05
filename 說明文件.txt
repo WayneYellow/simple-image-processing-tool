@@ -1,0 +1,9 @@
+python == 3.10.8
+套件:
+matplotlib
+numpy
+opencv-python
+Pillow
+tkinter
+
+README提供參考
