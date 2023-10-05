@@ -122,10 +122,11 @@ class ImageProcess(tk.Frame):
         '''
         open a file dialog to let user choose an image, load it to self.original_img and display it
         '''
-        file_path = filedialog.askopenfilename(title = "Select file",filetypes = (("jpeg files","*.jpg"),("tif files","*.tif")))
+        file_path = filedialog.askopenfilename(title = "Select file")
         if file_path:
-            self.original_img = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
-            self.display_image(self.original_img)
+            if file_path.endswith('.jpg') or file_path.endswith('.tif'): # check file type, only accept jpg and tif file
+                self.original_img = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
+                self.display_image(self.original_img)
         self.filepath = None
 
     def display_image(self, img):
@@ -317,7 +318,10 @@ class ImageProcess(tk.Frame):
             img = self.original_img.copy()
             kernel_size = simpledialog.askinteger("Input", "Enter kernel size:")
             if kernel_size is not None:
-                smoothed_image = cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+                try:  # kernel size must be odd
+                    smoothed_image = cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+                except:  # if not, use default kernel size 5
+                    smoothed_image = cv2.GaussianBlur(img, (5, 5), 0)
                 self.image = smoothed_image
                 self.display_image(self.image)
 
