@@ -18,13 +18,21 @@ install dependencies
 pip install -r requirements.txt
 ```
 run the hw1.py in src folder
+
 and the GUI will show up
+
 click the open image button to open an image
+
 an image should be shown in the bottom of the window
+
 then you can choose the function you want to use
+
 some function requires user input to work
+
 - the operation is always done on the original image
 - for overlay effect or apply repeatedly, you need to click save after doing a operation
+
 then you can do another operation on the edited image, and so on
-you can click the reset button to reset the image to the original image
+
+- you can click the reset button to reset the image to the original image
 
