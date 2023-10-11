@@ -200,7 +200,9 @@ class ImageProcess(tk.Frame):
             img = self.original_img.copy()
             a = float(self.contrast_a.get())
             b = float(self.contrast_b.get())
-            img = np.log1p((img+1)*a+b)
+            if a == 0:  # make sure it won't be 0
+                a = 0.001
+            img = np.log1p((img)*a+b)
             #scale the image to 0~255
             min_val = np.min(img)
             max_val = np.max(img)
