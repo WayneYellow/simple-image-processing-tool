@@ -6,4 +6,5 @@ opencv-python
 Pillow
 tkinter
 
+主程式在./src資料夾hw1.py
 README提供參考
