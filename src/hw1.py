@@ -126,6 +126,7 @@ class ImageProcess(tk.Frame):
         if file_path:
             if file_path.endswith('.jpg') or file_path.endswith('.tif'): # check file type, only accept jpg and tif file
                 self.original_img = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
+                self.image = self.original_img.copy()
                 self.display_image(self.original_img)
         self.filepath = None
 
@@ -150,7 +151,7 @@ class ImageProcess(tk.Frame):
         '''
         if self.image is not None:
             if self.filepath is None:
-                self.filepath = filedialog.asksaveasfilename(title = "Save", filetypes = (("jpeg files","*.jpg"),("tif files","*.tif")))
+                self.filepath = filedialog.asksaveasfilename(title = "Save", filetypes = (("jpeg files","*.jpg"),("tif files","*.tif")), defaultextension = ".jpg")
             if self.filepath:
                 cv2.imwrite(self.filepath,self.image)
             self.original_img = self.image.copy()
